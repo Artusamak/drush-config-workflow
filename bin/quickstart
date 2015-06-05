@@ -600,6 +600,12 @@ if [ -z "$HAS_TERMINUS" ]
 then
   $MSG "Installing Terminus"
 
+  # Create the bin directory if it doesn't exist yet.
+  if [ ! -d "$HOME/bin" ]
+  then
+    mkdir $HOME/bin
+  fi
+
   curl https://github.com/pantheon-systems/cli/releases/download/0.5.5/terminus.phar -L -o $HOME/bin/terminus
   check "Installed Terminus" "Could not download Terminus."
   chmod +x $HOME/bin/terminus
